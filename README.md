@@ -10,4 +10,4 @@
 ![image](https://github.com/haogtn/WebNgheNhac/assets/117337545/fb17386c-e578-480e-8373-55020706482a)
 ![image](https://github.com/haogtn/WebNgheNhac/assets/117337545/52ce8feb-ce69-49b7-af8d-6db4da7659df)
 ![image](https://github.com/haogtn/WebNgheNhac/assets/117337545/613f941d-6f7c-4b46-8bee-0142224a6ec9)
-![Uploading image.png…]()
+![image](https://github.com/haogtn/WebNgheNhac/assets/117337545/a9ea5e26-0d70-481d-b12b-2a47cd69484b)
