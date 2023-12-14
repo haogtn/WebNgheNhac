@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+    <!-- Favicon -->
+    <link rel="icon" href="/img/core-img/favicon.ico">
+        <title>Web Player</title>
+        <link rel="stylesheet" href="/css/styleplayer.css" />
+        <!-- icon from font-awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+        <!-- icon from font-awesome -->
+        <!-- FONT -->
+        <!-- POPPINS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Marcellus&family=Montserrat:wght@400;500;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:wght@400;700&display=swap"
+            rel="stylesheet" />
+        <!-- PROMP -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Marcellus&family=Montserrat:wght@400;500;700&family=Prompt:wght@400;700&display=swap"
+            rel="stylesheet" />
+        <!-- FONT -->
+    </head>
+    <body>
+        <header>
+            <nav th:replace="~{/layout/menuside.html :: menu-side}"></nav>
+            <div class="song-side">
+                <!-- <div class="song-side-header">
+                    <div class="song-side-header-navigation">
+                        <i class="fa-solid fa-circle-chevron-left"></i>
+                        <i class="fa-solid fa-circle-chevron-right"></i>
+                    </div>
+                    <div class="song-side-header-noti">
+                        <div class="search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" placeholder="Search" />
+                        </div>
+                        <div class="notification">
+                            <i class="fa-regular fa-bell"></i>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="explore">
+                    <div class="h3">
+                        <h3>Explore your vibes</h3>
+                    </div>
+                    <div class="explore-card" id="list-categories-singlepage">
+                        <li class="explore-card">
+                            <div class="img_play">
+                                <img
+                                    th:src="@{/asset/img/explore/hiphop.png}"
+                                    alt="alan" />
+                                <i class="bi fa-solid fa-circle-play" i="1"></i>
+                            </div>
+                            <h5>
+                                <p class="line-clamp">HIPHOP: Best of 2023</p>
+
+                                <div class="subtitle line-clamp line-2">
+                                    Created by: QMUSIC
+                                </div>
+                            </h5>
+                        </li>
+                        <li class="explore-card">
+                            <div class="img_play">
+                                <img
+                                    th:src="@{/asset/img/explore/electronic.png}"
+                                    alt="alan" />
+                                <i
+                                    class="bi playListPlay bi-play-circle-fill"
+                                    id="8"></i>
+                                <!-- change All id  -->
+                            </div>
+                            <h5>
+                                <p class="line-clamp">
+                                    Electronic: Best of 2023
+                                </p>
+
+                                <div class="subtitle line-clamp line-2">
+                                    Created by: QMUSIC
+                                </div>
+                            </h5>
+                        </li>
+                        <li class="explore-card">
+                            <div class="img_play">
+                                <img
+                                    th:src="@{/asset/img/explore/indie.png}"
+                                    alt="alan" />
+                                <i
+                                    class="bi playListPlay bi-play-circle-fill"
+                                    id="9"></i>
+                            </div>
+                            <h5>
+                                <p class="line-clamp">Indie: Best of 2023</p>
+
+                                <div class="subtitle line-clamp line-2">
+                                    Created by: QMUSIC
+                                </div>
+                            </h5>
+                        </li>
+                        <li class="explore-card">
+                            <div class="img_play">
+                                <img
+                                    th:src="@{/asset/img/explore/jazz.png}"
+                                    alt="alan" />
+                                <i
+                                    class="bi playListPlay bi-play-circle-fill"
+                                    id="10"></i>
+                            </div>
+                            <h5>
+                                <p class="line-clamp">Jazz: Best of 2023</p>
+
+                                <div class="subtitle line-clamp line-2">
+                                    Created by: QMUSIC
+                                </div>
+                            </h5>
+                        </li>
+                        <li class="explore-card">
+                            <div class="img_play">
+                                <img
+                                    th:src="@{/asset/img/explore/metal.png}"
+                                    alt="alan" />
+                                <i
+                                    class="bi playListPlay bi-play-circle-fill"
+                                    id="11"></i>
+                            </div>
+                            <h5>
+                                <p class="line-clamp">Metal: Best of 2023</p>
+
+                                <div class="subtitle line-clamp line-2">
+                                    Created by: QMUSIC
+                                </div>
+                            </h5>
+                        </li>
+                        <li class="explore-card">
+                            <div class="img_play">
+                                <img
+                                    th:src="@{/asset/img/explore/pop.png}"
+                                    alt="alan" />
+                                <i
+                                    class="bi playListPlay bi-play-circle-fill"
+                                    id="12"></i>
+                            </div>
+                            <h5>
+                                <p class="line-clamp">POP: Best of 2023</p>
+
+                                <div class="subtitle line-clamp line-2">
+                                    Created by: QMUSIC
+                                </div>
+                            </h5>
+                        </li>
+                        <li class="explore-card">
+                            <div class="img_play">
+                                <img
+                                    th:src="@{/asset/img/explore/randb.png}"
+                                    alt="alan" />
+                                <i
+                                    class="bi playListPlay bi-play-circle-fill"
+                                    id="13"></i>
+                            </div>
+                            <h5>
+                                <p class="line-clamp">R&B: Best of 2023</p>
+
+                                <div class="subtitle line-clamp line-2">
+                                    Created by: QMUSIC
+                                </div>
+                            </h5>
+                        </li>
+                        <li class="explore-card">
+                            <div class="img_play">
+                                <img
+                                    th:src="@{/asset/img/explore/rising.png}"
+                                    alt="alan" />
+                                <i class="bi fa-solid fa-circle-play"></i>
+                            </div>
+                            <h5>
+                                <p class="line-clamp">RISING: Best of 2023</p>
+
+                                <div class="subtitle line-clamp line-2">
+                                    Created by: QMUSIC
+                                </div>
+                            </h5>
+                        </li>
+                        <li class="explore-card">
+                            <div class="img_play">
+                                <img
+                                    th:src="@{/asset/img/explore/rock.png}"
+                                    alt="alan" />
+                                <i class="bi fa-solid fa-circle-play"></i>
+                            </div>
+                            <h5>
+                                <p class="line-clamp">Rock: Best of 2023</p>
+
+                                <div class="subtitle line-clamp line-2">
+                                    Created by: QMUSIC
+                                </div>
+                            </h5>
+                        </li>
+                        <li class="explore-card">
+                            <div class="img_play">
+                                <img
+                                    th:src="@{/asset/img/explore/viral.png}"
+                                    alt="alan" />
+                                <i class="bi fa-solid fa-circle-play"></i>
+                            </div>
+                            <h5>
+                                <p class="line-clamp">Viral: Best of 2023</p>
+
+                                <div class="subtitle line-clamp line-2">
+                                    Created by: QMUSIC
+                                </div>
+                            </h5>
+                        </li>
+                    </div>
+                </div>
+            </div>
+            <div class="master_play">
+                <img
+                    th:src="@{/asset/img/whatitis.jpg}"
+                    alt="Alan"
+                    id="poster_master_play" />
+                <h5 id="title">
+                    <p class="line-clamp" id="song-title">
+                        What it is
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </p>
+
+                    <div class="subtitle line-clamp" id="artist-name">
+                        Doechii
+                    </div>
+                    <div class="album line-clamp" id="category-name">
+                        PLAYING FROM: HIP-HOP
+                    </div>
+                </h5>
+                <div class="icon">
+                    <i class="fa-solid fa-backward" id="back"></i>
+                    <i class="fa-solid fa-play" id="masterPlay"></i>
+                    <i class="fa-solid fa-forward" id="next"></i>
+                </div>
+                <span id="currentStart">0:00</span>
+                <div class="bar">
+                    <input type="range" id="seek" min="0" value="0" max="100" />
+                    <div class="bar2" id="bar2"></div>
+                    <div class="dot"></div>
+                </div>
+                <span id="currentEnd">0:00</span>
+
+                <div class="vol">
+                    <i class="fa-solid fa-volume-low" id="vol_icon"></i>
+                    <input type="range" id="vol" min="0" value="30" max="100" />
+                    <div class="vol_bar"></div>
+                    <div class="dot" id="vol_dot"></div>
+                </div>
+                <div class="mode">
+                    <div class="mode-type">HIFI</div>
+                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-square-arrow-up-right"></i>
+                </div>
+            </div>
+        </header>
+    </body>
+    <script th:src="@{/js/categories.js}"></script>
+</html>

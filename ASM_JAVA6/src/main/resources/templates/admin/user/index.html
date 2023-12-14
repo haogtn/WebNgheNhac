@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="icon" href="../img/core-img/favicon.ico">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://kit.fontawesome.com/0ec45a6e18.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/0ec45a6e18.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {
+        background: black;
+    }
+
+    .bg-header {
+        background: #171717;
+    }
+</style>
+
+<body ng-app="app" ng-controller="ctrl">
+
+    <div class="container-fluid" style="font-family: Montserrat, sans-serif">
+        <!-- HEADER Ở ĐÂY -->
+        <div class="row">
+            <div style="
+                        background-color: #171717;
+                        display: flex;
+                        justify-content: space-around;
+                    " class="w-100 p-1 col-md-2 col-sm-4 mt-3">
+                <a href="index.html" class="nav-brand"><img src="../img/core-img/logo.png" alt=""></a>
+            </div>
+            <nav class="navbar navbar-expand navbar-light col-md-10 topbar mb-9 static-top shadow"
+                style="background-color: #171717">
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Topbar Search -->
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            aria-label="Search" aria-describedby="basic-addon2" />
+                        <div class="input-group-append">
+                            <button style="background-color: gray" class="btn" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="col-md-2 col-sm-1">
+                    <p style="color: rgb(255, 255, 255); margin-top: 15px" class="name">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                        &nbsp;Tên account
+                    </p>
+                </div>
+
+                <div class="col-md-2 col-sm-1" style="margin-right: -40px">
+                    <a style="text-decoration: none; color: gray" href="#"><i
+                            class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Logout</a>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <!-- MENU SIDE Ở ĐÂY -->
+            <div style="max-height: 100%" class="col-md-2 bg-header">
+                <ul style="
+                            list-style: none;
+                            margin-top: 20px;
+                            font-weight: bold;
+                        " class="d-flex flex-column">
+                    <li style="margin-top: 20px">
+                        <a style="color: white; font-size: 14px" href="../user/index.html" class="nav-link">
+                            <i class="fa-solid fa-user-gear"></i>
+                            &nbsp;&nbsp;Users
+                        </a>
+                    </li>
+                    <li style="margin-top: 20px">
+                        <a style="color: white; font-size: 14px" href="../artist/index.html" class="nav-link">
+                            <i class="fa-solid fa-microphone-lines"></i>
+                            &nbsp;&nbsp;Artist
+                        </a>
+                    </li>
+                    <li style="margin-top: 20px">
+                        <a style="color: white; font-size: 14px" href="../category/index.html" class="nav-link">
+                            <i class="fa-solid fa-list"></i>
+                            &nbsp;&nbsp;Lists
+                        </a>
+                    </li>
+                    <li style="margin-top: 20px">
+                        <a style="color: white; font-size: 14px" href="../song/index.html" class="nav-link">
+                            <i class="fa-solid fa-music"></i>
+                            &nbsp;&nbsp; Songs
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <main role="main" class="col-md-10 px-4;">
+                <!-- header -->
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-12 table-responsive">
+                        <h3 class=" mb-4" style="font-weight:bold;color:white"> Edit - Add Users </h3>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h4 style="color:red" class="text-center"></h4>
+                            </div>
+                            <form class="col-md-5" method="POST" style="color:white" action="">
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label style="font-weight:bold" for="address">Username</label>
+                                        <input name="address" required="true" type="text" class="form-control"
+                                            id="address" value="your address" ng-model="form.username" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-weight:bold" for="usr">Full name</label>
+                                        <input name="fullname" required="true" type="text" class="form-control" id="usr"
+                                            value="Your name" ng-model="form.fullname">
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-weight:bold" for="usr">Role</label>
+                                        <select class="form-control" name="role_id" id="role_id"
+                                            ng-model="form.accountRole.id">
+                                            <option value="" disabled>Choose</option>
+                                            <option ng-repeat="item in roles" value="{{item.id}}">{{item.id}}</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label style="font-weight:bold" for="email">Email:</label>
+                                        <input name="form.email" required="true" type="email" class="form-control"
+                                            id="email" value="your@gmail.com" ng-model="form.email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-weight:bold" for="phone_number">Phone number</label>
+                                        <input name="phone_number" required="true" type="text" class="form-control"
+                                            id="phone_number" value="09155453" ng-model="form.phoneNumber">
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-weight:bold" for="pwd">Password:</label>
+                                        <input name="password" type="password" class="form-control" id="pwd"
+                                            ng-model="form.password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-weight:bold" for="confirmation_pwd">Confirmation
+                                            Password:</label>
+                                        <input type="password" class="form-control" id="confirmation_pwd"
+                                            ng-model="rePassword">
+                                        <!-- <span ng-show="passwordsMatch && validPassword" style="color: green">Passwords
+                                            match and are valid!</span> -->
+                                        <!-- <span ng-show="!passwordsMatch && rePassword.length > 0"
+                                            style="color: red">Passwords do not match!</span>
+                                        <span ng-show="!validPassword && rePassword.length > 0"
+                                            style="color: red">Password should be valid!</span> -->
+                                    </div>
+
+
+                                    <button id="create-user-btn" style="background-color: aqua;font-weight: bold;"
+                                        class="btn col-md-4 mb-4" ng-click="create()">Sign up</button>
+                                    <button style="background-color: aqua;font-weight: bold;" id="update-user-btn"
+                                        class="btn col-md-4 mb-4" ng-click="update()">Update</button>
+                                    <!-- <button style="background-color: aqua;font-weight: bold;" id="update-user-btn"
+                                        class="btn col-md- mb-4" ng-click="reset()">Reset</button> -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- body -->
+                <div class="row" style="margin-top: 20px">
+                    <div class="col-md-12">
+                        <h3 class="mb-2" style="font-weight: bold; color: white">
+                            <i class="fa-solid fa-user-gear"></i>
+                            &nbsp;&nbsp;Users Management
+                        </h3>
+                    </div>
+                    <table style="border-radius: 10px" class="table table-bordered table-hover table-dark col-md-6 m-4">
+                        <thead>
+                            <tr>
+                                <th>Num</th>
+                                <th>Fullname</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th style="width: 50px"></th>
+                                <th style="width: 50px"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="list-users-admin">
+                            <tr ng-repeat="user in items">
+                                <td class="text-center">{{ $index + 1}}</td>
+                                <td class="text-center">{{ user.fullname }}</td>
+                                <td class="text-center">{{ user.username }}</td>
+                                <td class="text-center">{{ user.email }}</td>
+                                <td class="text-center">{{ user.accountRole.id }}</td>
+                                <td style="width: 50px">
+                                    <a><button class="btn btn-light" ng-click="edit(user.username)">
+                                            Edit
+                                        </button></a>
+                                </td>
+                                <td style="width: 50px">
+                                    <button ng-click="del(user.username)" class="btn btn-secondary">
+                                        Del
+                                    </button>
+                                </td>
+                            </tr>
+
+
+                            <!-- render -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="container col-12" style="height: 500px"></div>
+                <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+                    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+            </main>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/js/angular/auth.js"></script>
+</body>
+
+</html>
+<!-- footer -->

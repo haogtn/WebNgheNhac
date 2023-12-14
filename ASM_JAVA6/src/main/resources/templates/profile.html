@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+    <title>Profile</title>
+    <link rel="icon" href="../img/core-img/favicon.ico">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/0ec45a6e18.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {
+        background: black;
+    }
+
+    .bg-header {
+        background: #171717;
+    }
+
+    .avatar-wrapper {
+        position: relative;
+        height: 200px;
+        width: 200px;
+        margin: 50px auto;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 1px 1px 15px -5px black;
+        transition: all .3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+
+        &:hover .profile-pic {
+            opacity: .5;
+        }
+
+        .profile-pic {
+            height: 100%;
+            width: 100%;
+            transition: all .3s ease;
+
+            &:after {
+                font-family: FontAwesome;
+                content: "\f007";
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                font-size: 180px;
+                background: #ecf0f1;
+                color: #34495e;
+                text-align: center;
+            }
+        }
+
+        .upload-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+
+            .fa-arrow-circle-up {
+                position: absolute;
+                font-size: 202px;
+                top: 0;
+                left: 0;
+                text-align: center;
+                opacity: 0;
+                transition: all .3s ease;
+                color: #34495e;
+            }
+
+            &:hover .fa-arrow-circle-up {
+                opacity: .9;
+            }
+        }
+    }
+
+    .pic-account {
+        height: 35px;
+        width: 35px;
+        transition: all .3s ease;
+        border-radius: 50%;
+    }
+</style>
+
+<body ng-app="app" ng-controller="ctrl">
+
+    <div class="container-fluid" style="font-family: Montserrat, sans-serif">
+        <!-- HEADER Ở ĐÂY -->
+        <div class="row">
+            <div style="
+                        background-color: #171717;
+                        display: flex;
+                        justify-content: space-around;
+                    " class="w-100 p-1 col-md-2 col-sm-4 mt-3">
+                <a href="/home/index" class="nav-brand"><img src="/img/core-img/logo.png" alt=""></a>
+            </div>
+            <nav class="navbar navbar-expand navbar-light col-md-10 topbar mb-9 static-top shadow"
+                style="background-color: #171717">
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Topbar Search -->
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <div class="input-group">
+                        <!-- <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            aria-label="Search" aria-describedby="basic-addon2" />
+                        <div class="input-group-append">
+                            <button style="background-color: gray" class="btn" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div> -->
+                    </div>
+                </form>
+
+                <div class="col-md-2 col-sm-1">
+                    <p style="color: rgb(255, 255, 255); margin-top: 15px" class="name">
+                        <i class="fa-solid fa-user-astronaut" ng-if="!imagePath"></i>
+                        <img class="pic-account" ng-src="../asset/img/avatar/{{imagePath}}"
+                            ng-model="profileData.avatarUrl" ng-if="imagePath" />
+                        &nbsp; {{profileData.fullname}}
+                    </p>
+                </div>
+
+                <div class="col-md-2 col-sm-1">
+                    <a style="text-decoration: none; color: gray" href="/auth/logoff"><i
+                            class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Logout</a>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <!-- MENU SIDE Ở ĐÂY -->
+            <div style="max-height: 100%" class="col-md-2 bg-header">
+                <ul style="
+                            list-style: none;
+                            margin-top: 20px;
+                            font-weight: bold;
+                        " class="d-flex flex-column">
+                    <li style="margin-top: 20px">
+                        <a style="color: white; font-size: 13.5px" href="../user/index.html" class="nav-link">
+                            <i class="fa-solid fa-user-gear"></i>
+                            &nbsp;Profile Settings
+                        </a>
+                    </li>
+                    <li style="margin-top: 20px">
+                        <a style="color: white; font-size: 13.5px" href="../artist/index.html" class="nav-link">
+                            <i class="fa-solid fa-money"></i>
+                            &nbsp;&nbsp;Payment
+                        </a>
+                    </li>
+                    <li style="margin-top: 20px">
+                        <a style="color: white; font-size: 13.5px" href="../category/index.html" class="nav-link">
+                            <i class="fa-solid fa-list"></i>
+                            &nbsp;&nbsp;Playlist
+                        </a>
+                    </li>
+                    <li style="margin-top: 20px">
+                        <a style="color: white; font-size: 13.5px" href="../song/index.html" class="nav-link">
+                            <i class="fa-solid fa-music"></i>
+                            &nbsp;&nbsp; Favorite
+                        </a>
+                    </li>
+                    <li style="margin-top: 20px">
+                        <a style="color: white; font-size: 13.5px" href="/changePassword" class="nav-link">
+                            <i class="fa-solid fa-key"></i>
+                            &nbsp;Change Password
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <main role="main" class="col-md-10 px-4;">
+                <!-- header -->
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-12 table-responsive">
+                        <h3 class=" mb-4 mx-3" style="font-weight:bold;color:white;"> Profile </h3>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h4 style="color:white; margin-left: 10px">{{mess}}</h4>
+                            </div>
+                            <form class="col-md-5" style="color:white">
+                                <div class="panel-body">
+                                    <div class="avatar-wrapper">
+                                        <img class="profile-pic" ng-src="../asset/img/avatar/{{imagePath}}"
+                                            ng-model="profileData.avatarUrl" />
+                                        <div class="upload-button">
+                                            <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                                        </div>
+                                        <input class="file-upload" id="fileImg" type="file" accept="image/*" name="file"
+                                            ng-model="selectedFile" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input name="address" required="true" type="text" class="form-control"
+                                            id="address" value="your address" ng-model="profileData.username" hidden>
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-weight:bold" for="usr">Full name</label>
+                                        <input name="fullname" type="text" class="form-control" id="usr"
+                                            ng-model="profileData.fullname">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label style="font-weight:bold" for="email">Email:</label>
+                                        <input name="profileData.email" required="true" type="email"
+                                            class="form-control" id="email" ng-model="profileData.email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label style="font-weight:bold" for="phone_number">Phone number</label>
+                                        <input name="phone_number" required="true" type="text" class="form-control"
+                                            id="phone_number" ng-model="profileData.phoneNumber">
+                                    </div>
+                                    <!-- <span ng-show="passwordsMatch && validPassword" style="color: green">Passwords
+                                            match and are valid!</span> -->
+                                    <!-- <span ng-show="!passwordsMatch && rePassword.length > 0"
+                                            style="color: red">Passwords do not match!</span>
+                                        <span ng-show="!validPassword && rePassword.length > 0"
+                                            style="color: red">Password should be valid!</span> -->
+                                </div>
+                                <button style="background-color: aqua;font-weight: bold;" id="update-user-btn"
+                                    class="btn col-md-4 mb-4" ng-click="updateprofile()">Update</button>
+                                <!-- <button style="background-color: aqua;font-weight: bold;" id="update-user-btn"
+                                    class="btn col-md-4 mb-4" ng-click="img()">Img</button> -->
+                        </div>
+                        </form>
+                    </div>
+                </div>
+
+        </div>
+
+        <!-- <div class="container col-12" style="height: 400px"></div> -->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        </main>
+    </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/js/angular/profile.js"></script>
+</body>
+
+</html>
+<!-- footer -->

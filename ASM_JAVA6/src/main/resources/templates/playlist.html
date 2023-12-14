@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Web Player</title>
+        <link rel="stylesheet" href="/css/styleplayer.css" />
+        
+    <!-- Favicon -->
+    <link rel="icon" href="/img/core-img/favicon.ico">
+        <!-- icon from font-awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+        <!-- icon from font-awesome -->
+        <!-- FONT -->
+        <!-- POPPINS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Marcellus&family=Montserrat:wght@400;500;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:wght@400;700&display=swap"
+            rel="stylesheet" />
+        <!-- PROMP -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Marcellus&family=Montserrat:wght@400;500;700&family=Prompt:wght@400;700&display=swap"
+            rel="stylesheet" />
+        <!-- FONT -->
+    </head>
+    <body>
+        <header>
+            <nav th:replace="~{/layout/menuside.html :: menu-side}"></nav>
+            <div class="song-side">
+                <div class="detail-container">
+                    <div class="detail-container-banner" id="playlist-detail">
+                        <div class="detail-container-banner-first">
+                            <img th:src="@{/asset/img/explore/hiphop.png}" alt="" />
+                            <div class="detail-container-banner-content">
+                                <h1>HIP-HOP</h1>
+                                <p>Created by QMUSIC</p>
+                                <p>
+                                    The best HIP-HOP tracks of 2023, so far,
+                                    from J.Cole to Eminem.(Cover: ....)
+                                </p>
+                                <p>30 TRACKS (4:30:20)</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-container-banner-favicon">
+                            <div class="detail-container-banner-favicon-cta">
+                                <button>
+                                    <i class="fa-solid fa-play"></i>Play
+                                </button>
+                                <button>
+                                    <i class="fa-solid fa-shuffle"></i>Shuffle
+                                </button>
+                            </div>
+                            <div class="detail-container-banner-favicon-more">
+                                <div class="more-item">
+                                    <i class="fa-regular fa-heart"></i>
+                                    Add
+                                </div>
+                                <div class="more-item">
+                                    <i
+                                        class="fa-solid fa-arrow-up-from-bracket"></i>
+                                    Share
+                                </div>
+                                <div class="more-item">
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                    More
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-tracks">
+                    <div class="list-tracks-form-search">
+                        <input
+                            type="search"
+                            name="search-music"
+                            id=""
+                            placeholder="Filter playlist on title, artist or album"
+                            class="search" />
+                        <div class="icon-search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>TITLE</th>
+                                <th>ARTIST</th>
+                                <th>LISTS</th>
+                                <th>TIME</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="playlist-songs-detail">
+                            <tr>
+                                <td>
+                                    <img th:src="@{/asset/img/keshi.jpg}" alt="" />
+                                </td>
+                                <td>
+                                    <div class="table-title">
+                                        <div class="line-clamp">Limbo</div>
+                                        <span class="table-song-type"
+                                            >MASTER</span
+                                        >
+                                    </div>
+                                </td>
+                                <td>Keshi</td>
+                                <td>POP</td>
+                                <td>3:15</td>
+                                <td>
+                                    <i class="fa-solid fa-plus"></i>&nbsp;&nbsp;
+                                    <i class="fa-regular fa-heart"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img th:src="@{/asset/img/whatitis.jpg}" alt="" />
+                                </td>
+                                <td>
+                                    <div class="table-title">
+                                        <div class="line-clamp">What it is</div>
+                                        <span class="table-song-type"
+                                            >MASTER</span
+                                        >
+                                    </div>
+                                </td>
+                                <td>Doechi</td>
+                                <td>Hip Hop</td>
+                                <td>3:12</td>
+                                <td>
+                                    <i class="fa-solid fa-plus"></i>&nbsp;&nbsp;
+                                    <i class="fa-regular fa-heart"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img
+                                        th:src="@{/asset/img/norolemodelz.jpg}"
+                                        alt="" />
+                                </td>
+                                <td>
+                                    <div class="table-title">
+                                        <div class="line-clamp">
+                                            No role modelz
+                                        </div>
+                                        <span class="table-song-type"
+                                            >MASTER</span
+                                        >
+                                    </div>
+                                </td>
+                                <td>J. Cole</td>
+                                <td>Hip Hop</td>
+                                <td>3:12</td>
+                                <td>
+                                    <i class="fa-solid fa-plus"></i>&nbsp;&nbsp;
+                                    <i class="fa-regular fa-heart"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img
+                                        th:src="@{/asset/img/swimmingpools.jpg}"
+                                        alt="" />
+                                </td>
+                                <td>
+                                    <div class="table-title">
+                                        <div class="line-clamp">
+                                            Swimming Pools (Drank)
+                                        </div>
+                                        <span class="table-song-type"
+                                            >MASTER</span
+                                        >
+                                    </div>
+                                </td>
+                                <td>Kendrick Lamar</td>
+                                <td>Hip Hop</td>
+                                <td>3:12</td>
+                                <td>
+                                    <i class="fa-solid fa-plus"></i>&nbsp;&nbsp;
+                                    <i class="fa-regular fa-heart"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img th:src="@{/asset/img/1-800.jpg}" alt="" />
+                                </td>
+                                <td>
+                                    <div class="table-title">
+                                        <div class="line-clamp">
+                                            1-800-273-8255
+                                        </div>
+                                        <span class="table-song-type"
+                                            >MASTER</span
+                                        >
+                                    </div>
+                                </td>
+                                <td>Logic, Alessia Cara, Khalid</td>
+                                <td>Hip Hop</td>
+                                <td>3:12</td>
+                                <td>
+                                    <i class="fa-solid fa-plus"></i>&nbsp;&nbsp;
+                                    <i class="fa-regular fa-heart"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img th:src="@{/asset/img/whatitis.jpg}" alt="" />
+                                </td>
+                                <td>
+                                    <div class="table-title">
+                                        <div class="line-clamp">What it is</div>
+                                        <span class="table-song-type"
+                                            >MASTER</span
+                                        >
+                                    </div>
+                                </td>
+                                <td>Doechi</td>
+                                <td>Hip Hop</td>
+                                <td>3:12</td>
+                                <td>
+                                    <i class="fa-solid fa-plus"></i>&nbsp;&nbsp;
+                                    <i class="fa-regular fa-heart"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img
+                                        th:src="@{/asset/img/norolemodelz.jpg}"
+                                        alt="" />
+                                </td>
+                                <td>
+                                    <div class="table-title">
+                                        <div class="line-clamp">
+                                            No role modelz
+                                        </div>
+                                        <span class="table-song-type"
+                                            >MASTER</span
+                                        >
+                                    </div>
+                                </td>
+                                <td>J. Cole</td>
+                                <td>Hip Hop</td>
+                                <td>3:12</td>
+                                <td>
+                                    <i class="fa-solid fa-plus"></i>&nbsp;&nbsp;
+                                    <i class="fa-regular fa-heart"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img
+                                        th:src="@{/asset/img/swimmingpools.jpg}"
+                                        alt="" />
+                                </td>
+                                <td>
+                                    <div class="table-title">
+                                        <div class="line-clamp">
+                                            Swimming Pools (Drank)
+                                        </div>
+                                        <span class="table-song-type"
+                                            >MASTER</span
+                                        >
+                                    </div>
+                                </td>
+                                <td>Kendrick Lamar</td>
+                                <td>Hip Hop</td>
+                                <td>3:12</td>
+                                <td>
+                                    <i class="fa-solid fa-plus"></i>&nbsp;&nbsp;
+                                    <i class="fa-regular fa-heart"></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img th:src="@{/asset/img/1-800.jpg}" alt="" />
+                                </td>
+                                <td>
+                                    <div class="table-title">
+                                        <div class="line-clamp">
+                                            1-800-273-8255
+                                        </div>
+                                        <span class="table-song-type"
+                                            >MASTER</span
+                                        >
+                                    </div>
+                                </td>
+                                <td>Logic, Alessia Cara, Khalid</td>
+                                <td>Hip Hop</td>
+                                <td>3:12</td>
+                                <td>
+                                    <i class="fa-solid fa-plus"></i>&nbsp;&nbsp;
+                                    <i class="fa-regular fa-heart"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="master_play">
+                <img
+                    th:src="@{/asset/img/whatitis.jpg}"
+                    alt="Alan"
+                    id="poster_master_play" />
+                <h5 id="title">
+                    <p class="line-clamp" id="song-title">
+                        What it is
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </p>
+
+                    <div class="subtitle line-clamp" id="artist-name">
+                        Doechii
+                    </div>
+                    <div class="album line-clamp" id="category-name">
+                        PLAYING FROM: HIP-HOP
+                    </div>
+                </h5>
+                <div class="icon">
+                    <i class="fa-solid fa-backward" id="back"></i>
+                    <i class="fa-solid fa-play" id="masterPlay"></i>
+                    <i class="fa-solid fa-forward" id="next-detail"></i>
+                </div>
+                <span id="currentStart">0:00</span>
+                <div class="bar">
+                    <input type="range" id="seek" min="0" value="0" max="100" />
+                    <div class="bar2" id="bar2"></div>
+                    <div class="dot"></div>
+                </div>
+                <span id="currentEnd">0:00</span>
+
+                <div class="vol">
+                    <i class="fa-solid fa-volume-low" id="vol_icon"></i>
+                    <input type="range" id="vol" min="0" value="30" max="100" />
+                    <div class="vol_bar"></div>
+                    <div class="dot" id="vol_dot"></div>
+                </div>
+                <div class="mode">
+                    <div class="mode-type">HIFI</div>
+                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-square-arrow-up-right"></i>
+                </div>
+            </div>
+        </header>
+    </body>
+    <script type="module" th:src="@{/js/playlist.js}"></script>
+    <script th:src="@{/js/script1.js}"></script>
+</html>

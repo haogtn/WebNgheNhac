@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Player</title>
+    <link rel="stylesheet" href="/css/styleplayer.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/img/core-img/favicon.ico" />
+    <!-- icon from font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- icon from font-awesome -->
+    <!-- FONT -->
+    <!-- POPPINS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Marcellus&family=Montserrat:wght@400;500;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- PROMP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Marcellus&family=Montserrat:wght@400;500;700&family=Prompt:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FONT -->
+  </head>
+  <div class="menu-side" th:fragment="menu-side">
+    <div class="account-section">
+      <a href="index.html" class="nav-brand"
+        ><img src="img/core-img/logo.png" alt=""
+      /></a>
+    </div>
+    <div class="web-nav">
+      <p class="active">
+        <span></span
+        ><a href="/home/index"><i class="bi bi-music-note-beamed"></i> Home</a>
+      </p>
+      <p>
+        <span></span
+        ><a href="home/explore"
+          ><i class="bi bi-music-note-beamed"></i> Explore</a
+        >
+      </p>
+      <p>
+        <span></span
+        ><a href="#"><i class="bi bi-music-note-beamed"></i> Videos</a>
+      </p>
+    </div>
+    <div class="my-collection">
+      <p class="my-collection-tilte">MY COLLECTION</p>
+      <p><span></span><i class="fa-solid fa-podcast"></i> Mixes & Radio</p>
+      <p><span></span><i class="fa-solid fa-sliders"></i> Playlists</p>
+      <p><span></span><i class="fa-solid fa-compact-disc"></i> Albums</p>
+      <p><span></span><i class="fa-solid fa-music"></i> Tracks</p>
+      <p><span></span><i class="fa-brands fa-youtube"></i> Videos</p>
+      <p><span></span><i class="fa-solid fa-microphone"></i> Artists</p>
+    </div>
+
+    <div class="create-playlist">
+      <p class="create-playlist-title">PLAYLISTS</p>
+      <!-- PLAYLIST DATA SHOWING -->
+      <div class="tableshow" style="max-height: 250px; overflow-y: auto">
+        <table style="width: 100%; table-layout: fixed">
+          <thead>
+            <tr>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="playlist in playlistData">
+              <td style="width: 100%; padding: 0">
+                <button class="playlistButton">
+                  <small
+                    ><p>
+                      <i>{{playlist.name}}</i>
+                    </p></small
+                  >
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- PLAYLIST DATA SHOWING -->
+      <div class="create-playlist-a">
+        <a
+          ng-click="playlistAddOn()"
+          data-toggle="modal"
+          data-target="#exampleModalLong"
+        >
+          <span></span>
+
+          <i class="fa-solid fa-circle-plus"></i>
+          Create...
+        </a>
+      </div>
+
+      <div class="log-out-a">
+        <hr style="border-color: #595959; /* Màu đường kẻ */" />
+        <a href="/auth/logoff">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          Log Out
+        </a>
+      </div>
+    </div>
+    <!--MODAL-->
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalLong"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLongTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">PlayList</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              id="exitButton"
+            >
+              <!-- <span aria-hidden="true">&times;</span> -->EXIT
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Form -->
+            <form id="nameForm" method="POST">
+              <div class="form-row align-items-center mb-3">
+                <div class="col-sm-3">
+                  <label for="inputName" class="sr-only">Playlist Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputName"
+                    placeholder="Enter Playlist Name"
+                    required
+                  />
+                </div>
+                <div class="col-auto">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    ng-click="addNewPlaylist()"
+                  >
+                    Add New Playlist
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Danh sách tên -->
+            <!-- PLAYLIST DATA SHOWING -->
+            <div class="tableshow" style="max-height: 200px; overflow-y: auto">
+              <table style="width: 100%; table-layout: fixed">
+                <thead>
+                  <tr>
+                    <th>Choose</th>
+                    <th colspan="2">Playlist Name</th>
+                  </tr>
+                </thead>
+                <tbody id="playlistshow">
+                  <tr ng-repeat="playlist in playlistData">
+                    <td id="addButtonToPlaylist">
+                      <button
+                        style="width: 100%"
+                        type="button"
+                        name=""
+                        ng-click="addSongToPlaylist(playlist)"
+                        id="{{playlist.id}}"
+                      >
+                        ADD
+                      </button>
+                    </td>
+                    <td>
+                      <label for="{{playlist.id}}" class="">
+                        {{playlist.name}}
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- PLAYLIST DATA SHOWING -->
+          </div>
+          <!-- <div class="modal-footer">
+                  <div class="row">
+                    <div class="col">
+                      <button type="button" class="btn btn-primary" ng-click="">Add song to</button>
+    
+                    </div>
+                    </div>
+                  </div>
+                </div> -->
+        </div>
+      </div>
+    </div>
+    <!-- MODAL -->
+  </div>
+</html>

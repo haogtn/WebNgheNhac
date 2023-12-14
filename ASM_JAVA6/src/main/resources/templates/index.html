@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/layout::dynamic(~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>One Sound</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/img/core-img/favicon.ico">
+
+    <!-- Stylesheet -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script th:src="@{https://kit.fontawesome.com/0ec45a6e18.js}" crossorigin="anonymous"></script>
+    <script th:src="@{https://code.jquery.com/jquery-3.6.1.min.js}"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js}"></script>
+
+    <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="/css/album.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+</head>
+
+<body>
+
+    <main ng-app="indexApp" ng-controller="indexCtrl">
+        <!-- ##### Hero Area Start ##### -->
+        <section class="hero-area">
+            <div class="hero-slides owl-carousel">
+                <!-- Single Hero Slide -->
+                <div class="single-hero-slide d-flex align-items-center justify-content-center">
+                    <!-- Slide Img -->
+                    <div class="slide-img bg-img" style="background-image: url(/img/bg-img/bg-1.jpg);"></div>
+                    <!-- Slide Content -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="hero-slides-content text-center">
+                                    <h6 data-animation="fadeInUp" data-delay="100ms">Latest album</h6>
+                                    <h2 data-animation="fadeInUp" data-delay="300ms">Beyond Time <span>Beyond
+                                            Time</span></h2>
+                                    <a data-animation="fadeInUp" data-delay="500ms" href="#"
+                                        class="btn oneMusic-btn mt-50">Discover <i
+                                            class="fa fa-angle-double-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Hero Slide -->
+                <div class="single-hero-slide d-flex align-items-center justify-content-center">
+                    <!-- Slide Img -->
+                    <div class="slide-img bg-img" style="background-image: url(/img/bg-img/bg-2.jpg);"></div>
+                    <!-- Slide Content -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="hero-slides-content text-center">
+                                    <h6 data-animation="fadeInUp" data-delay="100ms">Latest album</h6>
+                                    <h2 data-animation="fadeInUp" data-delay="300ms">Colorlib Music <span>Colorlib
+                                            Music</span></h2>
+                                    <a data-animation="fadeInUp" data-delay="500ms" href="#"
+                                        class="btn oneMusic-btn mt-50">Discover <i
+                                            class="fa fa-angle-double-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ##### Hero Area End ##### -->
+
+        <!-- ##### Latest Albums Area Start ##### -->
+
+        <!-- ##### Latest Albums Area End ##### -->
+
+        <!-- ##### Buy Now Area Start ##### -->
+        <section class="oneMusic-buy-now-area has-fluid bg-gray section-padding-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-heading style-2">
+                            <p>See what’s new</p>
+                            <h2>Buy What’s New</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-2" ng-repeat="album in albums">
+                        <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
+                            <div class="album-thumb">
+                                <img ng-src="/asset/img/album/{{album.image}}" alt="{{album.title}}">
+                                <div class="play-icon">
+                                    <a href="/album/detai/{{album.id}}" class="video--play--btn"><span
+                                            class="icon-play-button"></span></a>
+                                </div>
+                            </div>
+                            <div class="album-info">
+                                <a href="#">
+                                    <h5>{{album.title}}</h5>
+                                </a>
+                                <!-- <p ng-repeat="singer in find_SingerByAlbum(album.id)">{{singer.name}}</p> -->
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
+                            <a href="#" class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ##### Buy Now Area End ##### -->
+
+        <!-- ##### Featured Artist Area Start ##### -->
+        <section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed"
+            style="background-image: url(img/bg-img/bg-4.jpg);">
+            <div class="container">
+                <div class="row align-items-end">
+                    <div class="col-12 col-md-5 col-lg-4">
+                        <div class="featured-artist-thumb">
+                            <img src="/img/bg-img/fa.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-7 col-lg-8">
+                        <div class="featured-artist-content">
+                            <!-- Section Heading -->
+                            <div class="section-heading white text-left mb-30">
+                                <p>See what’s new</p>
+                                <h2>Buy What’s New</h2>
+                            </div>
+                            <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam
+                                varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget
+                                lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis
+                                ante. Donec in velit non elit pulvinar pellentesque et non eros.</p>
+                            <div class="song-play-area">
+                                <div class="song-name">
+                                    <p>01. Main Hit Song</p>
+                                </div>
+                                <audio preload="auto" controls>
+                                    <source src="/audio/dummy-audio.mp3">
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ##### Featured Artist Area End ##### -->
+
+        <!-- ##### Miscellaneous Area Start ##### -->
+
+        <!-- ##### Miscellaneous Area End ##### -->
+
+        <!-- ##### Contact Area Start ##### -->
+        <section class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img"
+            style="background-image: url(img/bg-img/bg-2.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-heading white wow fadeInUp" data-wow-delay="100ms">
+                            <p>See what’s new</p>
+                            <h2>Get In Touch</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Contact Form Area -->
+                        <div class="contact-form-area">
+                            <form action="#" method="post">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="form-group wow fadeInUp" data-wow-delay="100ms">
+                                            <input type="text" class="form-control" id="name" placeholder="Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="form-group wow fadeInUp" data-wow-delay="200ms">
+                                            <input type="email" class="form-control" id="email" placeholder="E-mail">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form-group wow fadeInUp" data-wow-delay="300ms">
+                                            <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group wow fadeInUp" data-wow-delay="400ms">
+                                            <textarea name="message" class="form-control" id="message" cols="30"
+                                                rows="10" placeholder="Message"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="500ms">
+                                        <button class="btn oneMusic-btn mt-30" type="submit">Send <i
+                                                class="fa fa-angle-double-right"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ##### Contact Area End ##### -->
+        <script src="/js/angular/index_detail_album.js"></script>
+
+    </main>
+
+</body>
+
+</html>

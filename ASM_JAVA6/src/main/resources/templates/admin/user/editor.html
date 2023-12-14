@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Admin Dashboard</title>
+        <link rel="icon" href="../img/core-img/favicon.ico">
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://kit.fontawesome.com/0ec45a6e18.css"
+            crossorigin="anonymous" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous" />
+        <script
+            src="https://kit.fontawesome.com/0ec45a6e18.js"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+            crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+        body{
+            background: black;
+        }
+        .bg-header {
+            background: #171717;
+        }
+    </style>
+    <body>
+        <div
+            class="container-fluid"
+            style="font-family: Montserrat, sans-serif">
+             <!-- HEADER Ở ĐÂY -->
+
+             <div class="row">
+                <!-- MENU SIDE Ở ĐÂY -->
+                
+                <main role="main" class="col-md-10 px-4;">
+                    <!-- header -->
+<div class="row" style="margin-top: 20px;">
+    <div class="col-md-12 table-responsive">
+    <h3 class=" mb-4" style="font-weight:bold;color:white"> Edit - Add Users </h3>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 style="color:red" class="text-center"></h4>
+            </div>
+            <form class="col-md-5" method="POST"style="color:white" action="">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label style="font-weight:bold" for="usr">Full name</label>
+                        <input name="fullname" required="true" type="text" class="form-control" id="usr"
+                            value="Your name">
+                        <input type="text" name="id" value="" hidden="true">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight:bold" for="usr">Role</label>
+                        <select class="form-control" name="role_id" id="role_id" require=>
+                            <option value="">Choose</option>
+                            <option value="0">Member</option>
+                            <option value="1">Admin</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight:bold" for="email">Email:</label>
+                        <input name="email" required="true" type="email" class="form-control" id="email"
+                            value="your@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight:bold" for="address">Address</label>
+                        <input name="address" required="true" type="text" class="form-control" id="address"
+                            value="your address">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight:bold" for="phone_number">Phone number</label>
+                        <input name="phone_number" required="true" type="text" class="form-control" id="phone_number"
+                            value="09155453">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight:bold" for="pwd">Password:</label>
+                        <input name="password"  type="password"
+                            class="form-control" id="pwd">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-weight:bold" for="confirmation_pwd">Confirmation Password:</label>
+                        <input  type="password" class="form-control"
+                            id="confirmation_pwd">
+                    </div>
+                    <button  id="create-user-btn" style="background-color: aqua;font-weight: bold;"  class="btn col-md-5 mb-4">Sign up</button>
+                                        <button  style="background-color: aqua;font-weight: bold;" id="update-user-btn"  class="btn col-md-5 mb-4">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script>
+function validateForm() {
+    let pwd = document.querySelector("#pwd").value;
+    let confirmPwd = document.querySelector("#confirmation_pwd").value;
+    if (pwd != confirmPwd) {
+        alert("Xác minh mật khẩu không đúng , vui lòng nhập lại")
+        return false
+    }
+    return true;
+}
+</script>
+</body>
+</html>
+<script src="../../js/script.js"></script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+</head>
+<body>
+    <div class="row" th:fragment="header">
+        <div
+            style="
+                background-color: #171717;
+                display: flex;
+                justify-content: space-around;
+            "
+            class="w-100 p-1 col-md-2 col-sm-4 mt-3">
+            <a href="index.html" class="nav-brand"><img src="../img/core-img/logo.png" alt=""></a>
+        </div>
+        <nav
+            class="navbar navbar-expand navbar-light col-md-10 topbar mb-9 static-top shadow"
+            style="background-color: #171717">
+            <!-- Sidebar Toggle (Topbar) -->
+            <button
+                id="sidebarToggleTop"
+                class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Topbar Search -->
+            <form
+                class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <input
+                        type="text"
+                        class="form-control bg-light border-0 small"
+                        placeholder="Search for..."
+                        aria-label="Search"
+                        aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button
+                            style="background-color: gray"
+                            class="btn"
+                            type="button">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="col-md-2 col-sm-1">
+                <p
+                    style="color: rgb(255, 255, 255); margin-top: 15px"
+                    class="name">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                    &nbsp;Tên account
+                </p>
+            </div>
+
+            <div class="col-md-2 col-sm-1" style="margin-right: -40px">
+                <a style="text-decoration: none; color: gray" href="#"
+                    ><i class="fa-solid fa-right-from-bracket"></i
+                    >&nbsp;&nbsp;Logout</a
+                >
+            </div>
+        </nav>
+    </div>
+</body>

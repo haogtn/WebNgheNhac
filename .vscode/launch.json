@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Nhom3Java6AsmApplication<ASM_JAVA6>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.asm.Nhom3Java6AsmApplication",
+            "projectName": "ASM_JAVA6",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
